@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>bai1</h2>
+<p id="bai1"></p>
+<h2>bai2</h2>
+<input id="input">
+<button onclick="btn()">click</button>
+<p id="bai2"></p>
+<h2>bai3</h2>
+<input id="text" type="text">
+<button onclick="upperKey()">click</button>
+<p id="bai3"></p>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+    document.getElementById('bai1').innerHTML = myColor.join(',')
+
+
+    function btn() {
+        let num = document.getElementById('input').value
+        let arr = num.toString()
+        let result = [arr[0]];
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0 && arr[i - 1] % 2 === 0) {
+                result.push('-' + arr[i])
+            } else result.push(arr[i])
+        }
+        document.getElementById('bai2').innerHTML = result.join(',')
+    }
+
+
+    function upperKey() {
+        let arr = document.getElementById('text').value
+        let chuHoa = 'QWERTYUIOPASDFGHJKLZXCVBNM'
+        let chuThuong = 'qwertyuiopasdfghjklzxcvbnm'
+        let result = []
+        for (let i = 0; i < arr.length; i++) {
+            if (chuHoa.indexOf(arr[i]) !== -1) {
+                result.push(arr[i].toLowerCase())
+            } else if (chuThuong.indexOf(arr[i] !== -1)) {
+                result.push(arr[i].toUpperCase())
+            }
+        }
+        document.getElementById('bai3').innerHTML = result
+    }
+
+
+</script>
+</body>
+</html>
